@@ -1,1 +1,10 @@
-users show
+<% if @user == current_user %>
+<h1>Welcome <%= @user.first_name %></h1>
+<%= link_to "Create New Event", new_event_path %>
+
+<% if @user.events.any? %>
+<h2>My Events</h2>
+<%= render 'shared/table', object: @user.events %>
+<% end %>
+
+<% end %>

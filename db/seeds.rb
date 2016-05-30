@@ -30,7 +30,14 @@ past_events = 15.times.map do
                  :title => Faker::Lorem.sentence)
 end
 
-Invites = 20.times.map do
+Invites = 100.times.map do
   Invite.create!( :attendee => User.all.sample,
                   :attended_event => Event.all.sample)
 end
+
+items = 60.times.map do
+  Item.create!( :name => Faker::Lorem.word,
+                :user => User.all.sample,
+                :event => Event.all.sample)
+end
+

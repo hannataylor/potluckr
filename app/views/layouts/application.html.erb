@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-home, events, profile, login, register
+  <%= render 'layouts/header' %>
 <%= yield %>
+
+  <div class="footer">
+    <p>A potluck planning app, created by <a href="https://github.com/hannataylor">hannataylor</a></p>
+  </div>
 
 </body>
 </html>

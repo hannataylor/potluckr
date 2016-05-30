@@ -1,1 +1,13 @@
-welcome to potluckr
+<% if logged_in? %>
+
+  <%= render 'static_pages/user_home' %>
+
+<% else %>
+
+  <div>
+    <h1>Plan a Potluck</h1>
+    <p>Keep track of potluck plans with your friends.  This is a simple app to organize your potluck planning.</p>
+    <p><%= link_to "Create an Event", login_path %></p>
+  </div>
+
+<% end %>

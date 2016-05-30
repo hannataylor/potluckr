@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <td>Date</td>
+      <td>Title</td>
+      <td>Location</td>
+      <td>Host</td>
+      <td>Guests</td>
+    </tr>
+  </thead>
+
+  <% object.each do |event| %>
+  <tr>
+    <td><%= event.date %></td>
+    <td><%= link_to event.title, event_path(event) %></td>
+    <td><%= event.location %></td>
+    <td><%= link_to event.host.username, user_path(event.host) %></td>
+    <td><%= link_to event.attendees.count, event_path(event) %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,22 @@
+<h1><%= @event.title %></h1>
+
+
+<% if logged_in? %>
+<div><%= render 'attend_form' %></div>
+<% end %>
+
+<p><b>Location: </b><%= @event.location %></p>
+<p><b>Host: </b><%= @event.host.username %></p>
+
+<p><%= @event.description %></p>
+
+</br>
+
+<b>Who's Going:</b>
+
+<ol>
+<% @event.attendees.each do |attendee| %>
+   <li><%= link_to attendee.username, attendee %></li>
+
+<% end %>
+</ol>
