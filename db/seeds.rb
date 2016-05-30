@@ -41,3 +41,16 @@ items = 60.times.map do
                 :event => Event.all.sample)
 end
 
+event_comments = 60.times.map do
+  Comment.create!( :body => Faker::Lorem.sentence,
+                   :user => User.all.sample,
+                   :commentable => Event.all.sample)
+end
+
+item_comments = 100.times.map do
+  Comment.create!( :body => Faker::Lorem.sentence,
+                   :user => User.all.sample,
+                   :commentable => Item.all.sample)
+end
+
+
