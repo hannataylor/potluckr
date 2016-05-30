@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
   has_many :attendees, :through => :invites
   has_many :items
 
+  has_many :comments, as: :commentable
+
   scope :upcoming, -> { where("Date >= ?", Date.today).order('Date ASC') }
   scope :past, -> { where("Date < ?", Date.today).order('Date DESC') }
 
