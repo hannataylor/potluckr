@@ -1,1 +1,31 @@
-Sign up page
+<h1>Sign up</h1>
+
+<div>
+<%= form_for @user do |f| %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br><br>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <h5><%= msg %></h5>
+  <% end %>
+<% end %>
+
+  <%= f.submit "Register"%>
+
+
+<% end %>
+</div>
