@@ -1,16 +1,17 @@
-<h1>Create a Potluck</h1>
+<div class="container">
+  <div class="jumbotron">
+  <h1>Host a Potluck</h1>
 
-<%= form_for(@event) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= bootstrap_form_for(@event) do |f| %>
+    <%= f.text_field :title %>
 
-  <%= f.label :location %>
-  <%= f.text_field :location %>
+    <%= f.text_field :location %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <%= f.text_area :description %>
 
-  <%= f.label :date %>
-  <%= f.date_field :date%>
-  <%= f.submit "Create Potluck"%>
-<% end %>
+    <%= f.date_field :date%>
+    <%= f.submit "Host Potluck", class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>
+
+</div>

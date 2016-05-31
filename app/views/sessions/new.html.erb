@@ -1,12 +1,13 @@
-<h1>Login</h1>
+<div class="container">
+  <div class="jumbotron register">
+    <h1 class="uppercase-spaced">Login</h1>
 
-<div>
-<%= form_for :session, url: {action: "create"} do |f| %>
+<div class="form-input">
 
-  <h4><%= f.label :username %></h4>
+<%= bootstrap_form_for :session, url: {action: "create"} do |f| %>
+
     <%= f.text_field :username %>
 
-  <h4><%= f.label :password %></h4>
     <%= f.password_field :password %>
 
   <% if @errors %>
@@ -14,7 +15,10 @@
   <% end %>
 
 
-    <%= f.submit "Login"%>
+    <%= f.submit "Login", class: "btn btn-lg btn-primary" %>
 
 <% end %>
+</div>
+
+</div>
 </div>

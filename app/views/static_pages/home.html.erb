@@ -4,10 +4,16 @@
 
 <% else %>
 
+<%= render 'video_header' %>
+<div class="container">
+  <div class="jumbotron home-box">
+
   <div>
     <h1>Plan a Potluck</h1>
     <p>Keep track of potluck plans with your friends.  This is a simple app to organize your potluck planning.</p>
-    <p><%= link_to "Create an Event", login_path %></p>
+    <p><%= link_to "Create an Event", login_path, class: "btn btn-primary btn-lg " %></p>
   </div>
 
 <% end %>
+</div>
+</div>

@@ -1,11 +1,13 @@
-<h1><%= @user.first_name.capitalize %>'s Potluckr Profile</h1>
+<div class="container">
+  <div class="jumbotron profile">
+    <h1 class="uppercase-spaced"><%= @user.first_name.capitalize %>'s Potluckr Profile</h1>
   <% if @user == current_user %>
-    <%= link_to "Create New Event", new_event_path %>
+    <%= link_to "Host a Potluck", new_event_path, class: "btn btn-primary btn-lg " %>
   <% end %>
 
-<h3>Info:</h3>
-<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-<p>Username: <%= @user.username %></p>
+<h3>User Info:</h3>
+<h4>Name: <%= @user.first_name %> <%= @user.last_name %></h4>
+<h4>Username: <%= @user.username %></h4>
 
   <% if @user.events.any? %>
     <% if @user == current_user %>
@@ -13,7 +15,7 @@
     <% else %>
       <h2><%= @user.first_name.capitalize %>'s Potlucks</h2>
     <% end %>
-    <%= render 'shared/table', object: @user.events %>
+    <%= render 'shared/table', object: @user.events.upcoming %>
   <% end %>
 
   <% if @user.attended_events.any? %>
@@ -24,6 +26,16 @@
     <% end %>
     <%= render 'shared/table', object: @user.attended_events.upcoming %>
   <% end %>
+  <br><br>
+
+    <% if @user.events.any? %>
+    <% if @user == current_user %>
+      <h2>Potlucks I've Hosted</h2>
+    <% else %>
+      <h2><%= @user.first_name.capitalize %>'s Potlucks</h2>
+    <% end %>
+    <%= render 'shared/table', object: @user.events.past %>
+  <% end %>
 
     <% if @user.attended_events.any? %>
     <% if @user == current_user %>
@@ -33,3 +45,6 @@
     <% end %>
     <%= render 'shared/table', object: @user.attended_events.past %>
   <% end %>
+
+</div>
+</div>

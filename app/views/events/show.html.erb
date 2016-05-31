@@ -1,35 +1,63 @@
-<h1><%= @event.title %></h1>
+<div class="container">
+  <div class="jumbotron">
 
+<div class="page-header">
+<h1 class="uppercase-spaced"><%= @event.title %></h1>
+</div>
 
 <% if logged_in? %>
 <div><%= render 'attend_form' %></div>
 <% end %>
-
-<% if current_user.attending?(@event) && upcoming?(@event) %>
-<div><%= link_to "Bring an Item", new_event_item_path(@event) %></div>
-<% end %>
+<br>
 
 
 <p><b>Location: </b><%= @event.location %></p>
-<p><b>Host: </b><%= @event.host.username %></p>
+<p><b>Date: </b><%= long_form_date(@event.date) %></p>
+<p><b>Host: </b><%= @event.host.first_name %></p>
 
 <p><%= @event.description %></p>
 
-</br>
+<br>
 
-<b>Who's Going:</b>
+<h2>Who's Going:</h2>
 
-<ol>
-<% @event.attendees.each do |attendee| %>
-   <li><%= link_to attendee.username, attendee %></li>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <td>Name</td>
+    </tr>
+  </thead>
 
-<% end %>
-</ol>
-
-<b>What's Everyone Bringing:</b>
-
-<ul>
-  <% @event.items.each do |item| %>
-  <li><%= link_to item.user.username, user_path(item.user) %> is bringing <%= item.name %></li>
+  <% @event.attendees.each do |attendee| %>
+  <tr>
+    <td><%= link_to "#{attendee.first_name} #{attendee.last_name}", user_path(attendee) %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
+
+<br><br>
+<% if current_user.attending?(@event) && upcoming?(@event) %>
+<div><%= link_to "Bring an Item", new_event_item_path(@event), class: "btn btn-primary btn-lg" %></div>
+<br><br>
+<% end %>
+
+<h2>What's Everyone Bringing:</h2>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Item</td>
+    </tr>
+  </thead>
+
+  <% @event.items.each do |item| %>
+  <tr>
+    <td><%= link_to "#{item.user.first_name} #{item.user.last_name}", user_path(item.user) %></td>
+    <td><%= item.name %></td>
+  </tr>
+  <% end %>
+</table>
+
+</div>
+</div>

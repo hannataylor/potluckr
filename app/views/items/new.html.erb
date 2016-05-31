@@ -1,5 +1,9 @@
-<h1>Bring an Item</h1>
-<%= form_for [@event, @item] do |f| %>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Bring an Item</h1>
+
+   <div class="form-input">
+<%= bootstrap_form_for [@event, @item] do |f| %>
 
 <% if @item.errors.any? %>
     <p><%=pluralize(@item.errors.count, "error") %> prevented this item from saving.</p>
@@ -11,19 +15,20 @@
 
   <%end%>
   <p>
-    <%=f.label :item %><br>
-    <%=f.text_field :name %>
+    <label for="name">What do you want to bring?</label>
+    <%=f.text_field :name, hide_label: true %>
   </p>
 
-  <p>
     <%=f.hidden_field :event_id, :value => @event.id %><br>
     <%=f.hidden_field :user_id, :value => current_user.id %><br>
-  </p>
 
    <p>
-    <%=f.submit "Create Item" %>
+    <%=f.submit "Create Item", class: "btn btn-lg btn-primary" %>
   </p>
 <% end %>
 
-<%= link_to 'back', event_path(@event) %>
+<%= link_to 'Back', event_path(@event), class: "btn btn-lg btn-primary" %>
+</div>
 
+</div>
+</div>

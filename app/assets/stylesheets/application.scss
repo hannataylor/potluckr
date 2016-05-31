@@ -6,6 +6,14 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+body {
+  padding-bottom: 70px;
+  font-family: "Adobe Caslon";
+  text-align: center;
+}
+
+/* Video Background Clases  */
 .content-section .video-section{
     max-height: 800px;
     padding: 110px 0 32px;
@@ -15,8 +23,6 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 background-color: rgba(71, 71, 71, 0.59);
 padding: 110px 0 32px;
 min-height: 496px;
-
-/* Incase of overlay problems just increase the min-height*/
 }
 .video-section h1, .video-section h3{
 text-align:center;
@@ -24,19 +30,94 @@ color:#fff;
 }
 .video-section h1{
 font-size:110px;
-font-family: 'Roboto Condensed', sans-serif;
-font-weight:lighter;
+font-family: 'Optimus Princeps', serif;
+font-weight: 300;
 text-transform: uppercase;
-margin: 40px auto 0px;
+letter-spacing: 20px;
+margin: 80px auto 0px;
 }
 .video-section h3{
 font-size: 25px;
+font-family: 'Optimus Princeps', serif;
 font-weight:lighter;
+text-transform: uppercase;
+letter-spacing: 10px;
 margin: 0px auto 15px;
 }
 .video-section .buttonBar{display:none;}
 .player {font-size: 1px;}
 
+/* End of Video Background Classes*/
+
+/* Fonts */
+@font-face {
+        font-family: 'Optimus Princeps';
+        src: url('/assets/fonts/OptimusPrinceps.ttf');
+        src: url('/assets/fonts/OptimusPrinceps.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+     }
+.content p {
+  font-family: 'Optimus Princeps';
+  font-size: 42px;
+}
+
+.logo {
+  font-family: 'Optimus Princeps';
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .header {
-  margin-bottom: auto;
+  font-family: 'Optimus Princeps';
+  font-weight: lighter;
+}
+
+.home {
+  margin-top: 5em;
+}
+
+.btn {
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+
+.jumbotron {
+  margin-top: 6em;
+  width: 50em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.events {
+  width: 80em;
+}
+
+.uppercase-spaced {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.profile {
+  width: 80em;
+}
+
+.register {
+  width: 40em;
+}
+
+.home-box {
+  width: 50em;
+}
+
+.form-input {
+  width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-page {
+  width: 70em;
+  margin-left: auto;
+  margin-right: auto;
 }
