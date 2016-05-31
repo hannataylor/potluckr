@@ -5,6 +5,11 @@
 <div><%= render 'attend_form' %></div>
 <% end %>
 
+<% if current_user.attending?(@event) && upcoming?(@event) %>
+<div><%= link_to "Bring an Item", new_event_item_path(@event) %></div>
+<% end %>
+
+
 <p><b>Location: </b><%= @event.location %></p>
 <p><b>Host: </b><%= @event.host.username %></p>
 
@@ -20,3 +25,11 @@
 
 <% end %>
 </ol>
+
+<b>What's Everyone Bringing:</b>
+
+<ul>
+  <% @event.items.each do |item| %>
+  <li><%= link_to item.user.username, user_path(item.user) %> is bringing <%= item.name %></li>
+  <% end %>
+</ul>
