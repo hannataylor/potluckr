@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @event = Event.find_by(id: params[:event_id])
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to event_path(@event)
     else
       render 'new'
     end

@@ -1,5 +1,6 @@
 <div id="attend_form">
 <% if current_user.attending?(@event) %>
+  <h4>You are attending <%= @event.host.first_name %>'s Potluck</h4>
   <%= render 'cancel' %>
 <% else %>
   <%= render 'attend' %>

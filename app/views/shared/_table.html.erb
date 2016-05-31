@@ -1,4 +1,4 @@
-<table>
+<table class="table table-condensed">
   <thead>
     <tr>
       <td>Date</td>
@@ -11,7 +11,7 @@
 
   <% object.each do |event| %>
   <tr>
-    <td><%= event.date %></td>
+    <td><%= long_form_date(event.date) %></td>
     <td><%= link_to event.title, event_path(event) %></td>
     <td><%= event.location %></td>
     <td><%= link_to event.host.first_name, user_path(event.host) %></td>

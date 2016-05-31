@@ -1,7 +1,11 @@
-<h1>Browse All Events</h1>
+<div class="container">
+  <div class="jumbotron events">
+  <h1 class="uppercase-spaced">Browse All Events</h1>
 
-<h2>Upcoming</h2>
-<%= render 'shared/table', object: @events_upcoming %>
+  <h2>Upcoming</h2>
+  <%= render 'shared/table', object: @events_upcoming %>
 
-<h2>Past</h2>
-<%= render 'shared/table', object: @events_past %>
+  <h2>Past</h2>
+  <%= render 'shared/table', object: @events_past %>
+</div>
+</div>
