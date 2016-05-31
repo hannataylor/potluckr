@@ -3,8 +3,8 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name, null: false
 
-      t.references :user, null: false
-      t.references :event, null: false
+      t.references :user
+      t.references :event
 
       t.timestamps null: false
     end

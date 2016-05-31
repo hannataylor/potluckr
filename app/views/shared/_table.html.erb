@@ -14,7 +14,7 @@
     <td><%= event.date %></td>
     <td><%= link_to event.title, event_path(event) %></td>
     <td><%= event.location %></td>
-    <td><%= link_to event.host.username, user_path(event.host) %></td>
+    <td><%= link_to event.host.first_name, user_path(event.host) %></td>
     <td><%= link_to event.attendees.count, event_path(event) %></td>
   </tr>
   <% end %>

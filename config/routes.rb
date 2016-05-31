@@ -14,9 +14,16 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  resources :events, only: [:new, :create, :show, :index]
+  resources :events, only: [:new, :create, :show, :index] do
+    resources :items, only: [:show, :new, :create, :destroy] do
+    resources :comments, only: [:new, :create, :destroy]
+  end
+    resources :comments, only: [:new, :create, :destroy]
+  end
 
   resources :invites, only: [:create, :destroy]
+
+
 
 
   # Example of regular route:

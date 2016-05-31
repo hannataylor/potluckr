@@ -1,10 +1,35 @@
-<% if @user == current_user %>
-<h1>Welcome <%= @user.first_name %></h1>
-<%= link_to "Create New Event", new_event_path %>
+<h1><%= @user.first_name.capitalize %>'s Potluckr Profile</h1>
+  <% if @user == current_user %>
+    <%= link_to "Create New Event", new_event_path %>
+  <% end %>
 
-<% if @user.events.any? %>
-<h2>My Events</h2>
-<%= render 'shared/table', object: @user.events %>
-<% end %>
+<h3>Info:</h3>
+<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+<p>Username: <%= @user.username %></p>
 
-<% end %>
+  <% if @user.events.any? %>
+    <% if @user == current_user %>
+      <h2>Potlucks I'm Hosting</h2>
+    <% else %>
+      <h2><%= @user.first_name.capitalize %>'s Potlucks</h2>
+    <% end %>
+    <%= render 'shared/table', object: @user.events %>
+  <% end %>
+
+  <% if @user.attended_events.any? %>
+    <% if @user == current_user %>
+      <h2>Potlucks I'm Attending</h2>
+    <% else %>
+      <h2>Potlucks <%= @user.first_name.capitalize %> is attending</h2>
+    <% end %>
+    <%= render 'shared/table', object: @user.attended_events.upcoming %>
+  <% end %>
+
+    <% if @user.attended_events.any? %>
+    <% if @user == current_user %>
+      <h2>Potlucks I've Attended</h2>
+    <% else %>
+      <h2>Potlucks <%= @user.first_name.capitalize %> has attended</h2>
+    <% end %>
+    <%= render 'shared/table', object: @user.attended_events.past %>
+  <% end %>

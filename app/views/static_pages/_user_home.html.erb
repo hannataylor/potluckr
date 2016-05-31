@@ -1,7 +1,9 @@
-<h1><%= @user.username %></h1>
+<div class="jumbotron">
+  <div class="container">
+<h3>Welcome back, <%= @user.first_name.capitalize %></h3>
 
 <div>
-<%= link_to "Create New Event", new_event_path %>
+<%= link_to "Create New Event", new_event_path, class: "btn btn-primary btn-lg" %>
 </div>
 
 <% if @upcoming_events.any? %>
@@ -18,3 +20,6 @@
 <h2>My Events</h2>
 <%= render 'shared/table', object: @user.events %>
 <% end %>
+
+  </div>
+</div>

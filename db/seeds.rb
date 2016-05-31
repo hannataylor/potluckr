@@ -36,7 +36,7 @@ Invites = 100.times.map do
 end
 
 items = 60.times.map do
-  Item.create!( :name => Faker::Lorem.word,
+  Item.create!( :name => Faker::Hipster.word,
                 :user => User.all.sample,
                 :event => Event.all.sample)
 end
